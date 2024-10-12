@@ -1,14 +1,18 @@
 <template>
   <div class="min-h-screen bg-gray-100">
-    <header class="bg-primary text-white p-8">
-      <div class="container mx-auto">
-        <h1 class="text-4xl font-bold">{{ personalInfo.name }}</h1>
-        <p class="text-2xl mt-2">{{ personalInfo.title }}</p>
+    <header class="bg-primary text-white p-8 relative overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center filter blur-sm" style="background-image: url('/profile-photo.jpg');"></div>
+      <div class="container mx-auto relative z-10 flex items-center">
+        <img src="/profile-photo.jpg" alt="Salem Yaslem Al-saiari" class="w-32 h-32 rounded-full mr-8 border-4 border-white shadow-lg animate-fadeIn">
+        <div>
+          <h1 class="text-4xl font-bold animate-slideInFromRight">{{ personalInfo.name }}</h1>
+          <p class="text-2xl mt-2 animate-slideInFromRight">{{ personalInfo.title }}</p>
+        </div>
       </div>
     </header>
 
     <main class="container mx-auto mt-8 px-4">
-      <section class="mb-12">
+      <section class="mb-12 animate-fadeIn">
         <h2 class="text-3xl font-semibold mb-4 text-primary">About Me</h2>
         <p class="text-gray-700 text-lg">
           {{ summary }}
@@ -16,12 +20,12 @@
       </section>
 
       <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary">Experience</h2>
+        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Experience</h2>
         <div class="space-y-6">
           <div
             v-for="(job, index) in experience"
             :key="index"
-            class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary"
+            class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary transition-all duration-300 hover:shadow-xl animate-fadeIn"
           >
             <h3 class="text-xl font-semibold text-primary">
               {{ job.position }} at {{ job.company }}
@@ -65,12 +69,12 @@
       </section>
 
       <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary">Skills</h2>
+        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Skills</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
             v-for="(skillSet, category) in skills"
             :key="category"
-            class="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary"
+            class="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary transition-all duration-300 hover:shadow-xl animate-fadeIn"
           >
             <h3 class="text-xl font-semibold mb-3 capitalize text-primary">
               {{ category }}
@@ -92,9 +96,9 @@
       </section>
 
       <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary">Education</h2>
+        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Education</h2>
         <div
-          class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary"
+          class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary transition-all duration-300 hover:shadow-xl animate-fadeIn"
         >
           <h3 class="text-xl font-semibold text-primary">
             {{ education[0].degree }} in {{ education[0].field }}
@@ -107,9 +111,9 @@
       </section>
 
       <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary">Contact</h2>
+        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Contact</h2>
         <div
-          class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary"
+          class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary transition-all duration-300 hover:shadow-xl animate-fadeIn"
         >
           <p class="mb-2">
             <strong class="text-primary">Email:</strong>
@@ -128,7 +132,7 @@
       </section>
 
       <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary">Connect</h2>
+        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Connect</h2>
         <div class="flex flex-wrap gap-4">
           <a
             v-for="(link, platform) in accounts"
@@ -136,7 +140,7 @@
             :href="link"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-dark transition-colors"
+            class="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-dark transition-colors animate-fadeIn"
           >
             {{ platform }}
           </a>
