@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gray-100">
     <header class="bg-primary text-white p-8 relative overflow-hidden">
-      <div class="absolute inset-0 bg-cover bg-center filter blur-sm" style="background-image: url('/profile-photo.jpg');"></div>
       <div class="container mx-auto relative z-10 flex items-center">
         <img src="/profile-photo.jpg" alt="Salem Yaslem Al-saiari" class="w-32 h-32 rounded-full mr-8 border-4 border-white shadow-lg animate-fadeIn">
         <div>
