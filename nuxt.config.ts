@@ -12,4 +12,8 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  app: {
+    buildAssetsDir: 'assets',
+  },
+  ssr: false, // Disable server-side rendering for static site generation
 })
