@@ -285,9 +285,8 @@ const languages = [
 
 const accounts = {
   x: 'https://x.com/xlmnxp',
-  github: 'https://github.com/xlmnxp/',
-  bahr: 'https://bahr.910ths.sa/freelancers/xlmnxp',
-  linkedin: 'https://sa.linkedin.com/in/salem-yaslem-98b494193',
-  website: 'https://sy.sa/',
+  Github: 'https://github.com/xlmnxp/',
+  Bahr: 'https://bahr.910ths.sa/freelancers/xlmnxp',
+  LinkedIn: 'https://sa.linkedin.com/in/salem-yaslem-98b494193',
 };
 </script>
