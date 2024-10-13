@@ -96,10 +96,6 @@
             {{ personalInfo.email }}
           </p>
           <p class="mb-2">
-            <strong class="text-primary">Phone:</strong>
-            {{ personalInfo.phones.join(', ') }}
-          </p>
-          <p class="mb-2">
             <strong class="text-primary">Location:</strong>
           <div v-for="(address, index) in personalInfo.addresses" :key="index">
             <span class="inline-block w-2 h-2 rounded-full bg-primary mt-1.5 mr-2 flex-shrink-0"></span>
@@ -149,7 +145,6 @@ const personalInfo = {
       country: 'Saudi Arabia',
     },
   ],
-  phones: ['+96650000000', '+96650000000'],
   email: 's@sy.sa',
 };
 
