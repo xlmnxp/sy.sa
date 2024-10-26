@@ -8,6 +8,7 @@ export default {
     "./app.vue",
     "./error.vue"
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -18,6 +19,7 @@ export default {
         fadeIn: 'fadeIn 0.5s ease-in-out',
         slideInFromLeft: 'slideInFromLeft 0.5s ease-in-out',
         slideInFromRight: 'slideInFromRight 0.5s ease-in-out',
+        slideInFromBottom: 'slideInFromBottom 0.5s ease-in-out',
       },
       keyframes: {
         fadeIn: {
@@ -27,6 +29,10 @@ export default {
         slideInFromRight: {
           '0%': { transform: 'translateX(100%)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideInFromBottom: {
+          '0%': { transform: 'translateY(30px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
     },

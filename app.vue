@@ -1,121 +1,26 @@
 <template>
-  <div class="min-h-screen bg-gray-100">
-    <header class="bg-primary-dark text-white p-8 relative overflow-hidden">
-      <div class="container mx-auto relative z-10 flex items-center">
-        <img src="/profile-photo.jpg" alt="Salem Yaslem Al-saiari"
-          class="w-32 h-32 rounded-full mr-8 border-4 border-white shadow-lg animate-fadeIn">
-        <div>
-          <h1 class="text-4xl font-bold animate-slideInFromRight">{{ personalInfo.name }}</h1>
-          <p class="text-2xl mt-2 animate-slideInFromRight">{{ personalInfo.title }}</p>
+  <div class="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+    <header class="bg-primary/10 dark:bg-primary/5 text-primary dark:text-primary-dark py-4 px-4 sm:px-6 relative overflow-hidden">
+      <div class="container mx-auto relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+        <div class="flex flex-col sm:flex-row items-center text-center sm:text-left">
+          <img src="/profile-photo.jpg" alt="Salem Yaslem Al-saiari"
+            class="w-20 h-20 sm:w-24 sm:h-24 rounded-full sm:mr-6 border-2 border-primary dark:border-primary-dark shadow-lg animate-fadeIn mb-2 sm:mb-0">
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-bold animate-slideInFromRight">{{ personalInfo.name }}</h1>
+            <p class="text-lg sm:text-xl mt-1 animate-slideInFromRight text-primary-dark dark:text-primary">{{ personalInfo.title }}</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-6">
+          <nav class="flex items-center space-x-6">
+            <NuxtLink to="/" class="text-primary dark:text-primary-dark hover:text-primary-dark dark:hover:text-primary transition-colors">Home</NuxtLink>
+            <NuxtLink to="/repos" class="text-primary dark:text-primary-dark hover:text-primary-dark dark:hover:text-primary transition-colors">Repositories</NuxtLink>
+          </nav>
+          <ThemeToggle />
         </div>
       </div>
     </header>
 
-    <main class="container mx-auto mt-8 px-4">
-      <section class="mb-12 animate-fadeIn">
-        <h2 class="text-3xl font-semibold mb-4 text-primary">About Me</h2>
-        <p class="text-gray-700 text-lg">
-          {{ summary }}
-        </p>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Experience</h2>
-        <div class="space-y-6">
-          <div v-for="(job, index) in experiences" :key="index"
-            class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary transition-all duration-300 hover:shadow-xl animate-fadeIn">
-            <h3 class="text-xl font-semibold text-primary">
-              {{ job.position }} at {{ job.company }}
-            </h3>
-            <p class="text-gray-600 mb-4">
-              {{ job.startDate }} - {{ job.endDate }}
-            </p>
-            <ul class="space-y-3">
-              <li v-for="(resp, respIndex) in job.responsibilities" :key="respIndex" class="ml-4">
-                <template v-if="typeof resp === 'string'">
-                  <span class="inline-block w-2 h-2 rounded-full bg-primary mt-1.5 mr-2 flex-shrink-0"></span>
-                  <span class="text-gray-700">{{ resp }}</span>
-                </template>
-                <template v-else>
-                  <h4 class="font-semibold text-gray-800 mb-2">
-                    {{ resp.period }}
-                  </h4>
-                  <ul class="space-y-2">
-                    <li v-for="(task, taskIndex) in resp.tasks" :key="taskIndex" class="flex items-start">
-                      <span class="inline-block w-2 h-2 rounded-full bg-primary mt-1.5 mr-2 flex-shrink-0"></span>
-                      <span class="text-gray-700">{{ task }}</span>
-                    </li>
-                  </ul>
-                </template>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Skills</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div v-for="(skillSet, category) in skills" :key="category"
-            class="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary transition-all duration-300 hover:shadow-xl animate-fadeIn">
-            <h3 class="text-xl font-semibold mb-3 capitalize text-primary">
-              {{ category }}
-            </h3>
-            <ul class="space-y-2">
-              <li v-for="(skill, skillIndex) in skillSet" :key="skillIndex" class="flex items-center">
-                <span class="inline-block w-2 h-2 rounded-full bg-primary mr-2 flex-shrink-0"></span>
-                <span class="text-gray-700">{{ skill }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Education</h2>
-        <div
-          class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary transition-all duration-300 hover:shadow-xl animate-fadeIn">
-          <template v-for="education of educations">
-            <h3 class="text-xl font-semibold text-primary">
-              {{ education.degree }} in {{ education.field }}
-            </h3>
-            <p class="text-gray-600">
-              {{ education.institution }}, {{ education.startYear }} -
-              {{ education.endYear }}
-            </p>
-          </template>
-        </div>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Contact</h2>
-        <div
-          class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary transition-all duration-300 hover:shadow-xl animate-fadeIn">
-          <p class="mb-2">
-            <strong class="text-primary">Email:</strong>
-            {{ personalInfo.email }}
-          </p>
-          <p class="mb-2">
-            <strong class="text-primary">Location:</strong>
-          <div v-for="(address, index) in personalInfo.addresses" :key="index">
-            <span class="inline-block w-2 h-2 rounded-full bg-primary mt-1.5 mr-2 flex-shrink-0"></span>
-            {{ address.city }}, {{ address.region }}, {{ address.country }}
-            <span v-if="address.street"> ({{ address.street }}) </span>
-          </div>
-          </p>
-        </div>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-semibold mb-4 text-primary animate-fadeIn">Connect</h2>
-        <div class="flex flex-wrap gap-4">
-          <a v-for="(link, platform) in accounts" :key="platform" :href="link" target="_blank" rel="noopener noreferrer"
-            class="bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-dark transition-colors animate-fadeIn">
-            {{ platform }}
-          </a>
-        </div>
-      </section>
-    </main>
+    <NuxtPage />
 
     <footer class="bg-primary text-white text-center p-4 mt-8">
       <p>
@@ -147,115 +52,22 @@ const personalInfo = {
   ],
   email: 's@sy.sa',
 };
-
-const summary =
-  'Experienced professional with a strong background in utilizing various tools and technologies related to cloud computing, web development, DevOps, system administration, version control, containerization, and continuous integration/continuous deployment (CI/CD).';
-
-const experiences = [
-  {
-    company: 'Jaras',
-    position: 'DevOps Engineer',
-    type: 'Part-time',
-    startDate: 'August 2024',
-    endDate: 'Present',
-    responsibilities: [
-      'Developed and implemented Zatca Phase 2 integration using Django',
-      'Managed DevOps processes for Django-based applications',
-    ],
-  },
-  {
-    company: 'Alwasaet',
-    position: 'Software Engineer / DevOps Engineer',
-    type: 'Full-time',
-    startDate: 'August 2021',
-    endDate: 'Present',
-    responsibilities: [
-      {
-        period: 'Year 3 (2023 - Present)',
-        tasks: [
-          'Migrated infrastructure to Google Cloud Platform using Terraform for Infrastructure as Code (IaC)',
-          'Set up and managed databases, storage buckets, and various GCP services including Cloud Run, Load Balancers, Cloud DNS, Redis, and Cloud Build',
-          'Implemented and managed Elasticsearch using Kubernetes',
-          'Continued development and maintenance of back-end applications using NestJS and ExpressJS',
-        ],
-      },
-      {
-        period: 'Aramco - MyLearning Project',
-        tasks: [
-          'Created and managed 4 environments: Development, Staging, UAT, and Production',
-          'Utilized Jenkins for building and deploying changes across all environments',
-          'Developed back-end features using NestJS, creating numerous API endpoints with NuxtJS',
-          'Set up and configured Directus as a headless CMS',
-          'Implemented integration between Camunda, Directus, and MyLearning platforms',
-        ],
-      },
-      {
-        period: 'Year 2 (2022 – 2023)',
-        tasks: [
-          'Created new separated infrastructure for Alwasaet LXP, DAM, and CMS SaaS in Oracle Cloud (Jeddah region)',
-          'Set up Jenkins instances for CI/CD pipelines',
-          'Configured and managed databases',
-          'Automated the development process',
-          'Initiated and developed the DAM project using NestJS as a back-end developer',
-          'Maintained and enhanced the LXP application built with ExpressJS',
-        ],
-      },
-      {
-        period: 'Year 1 (2021 – 2022)',
-        tasks: [
-          'Managed on-premise infrastructure for Alwasaet LXP at MOMRA',
-          'Configured and managed proxies and load balancers',
-          'Handled image setup, upload, configuration, and new release deployments',
-        ],
-      },
-    ],
-  },
-  {
-    company: 'Bahr',
-    position: 'Freelance',
-    startDate: 'January 2016',
-    endDate: 'October 2021',
-    responsibilities: [
-      'Successfully delivered two projects on the Bahr platform, each receiving a five-star rating for exceptional performance and client satisfaction.',
-    ],
-  },
-];
-
-const educations = [
-  {
-    institution: 'Northern Border University',
-    degree: "Bachelor's degree",
-    field: 'Computer Science',
-    startYear: 2017,
-    endYear: 2022,
-  },
-];
-
-const skills = {
-  software: ['Microsoft Office', 'LibreOffice', 'Git', 'Docker', 'Jenkins'],
-  programming: ['C/C++', 'Rust', 'JavaScript/TypeScript'],
-  operating: ['Linux System Administrator', 'PostgreSQL'],
-  extra: ['HTML', 'CSS', 'HTML5', 'CSS3', 'Automation'],
-  frameworks: ['NestJS', 'NextJS/ReactJS', 'NuxtJS/VueJS', 'NodeJS'],
-  cloud: ['Oracle Cloud Infrastructure', 'Google Cloud Platform'],
-  other: ['GTK', 'Ffmpeg', 'Camunda', 'Directus'],
-};
-
-const languages = [
-  {
-    language: 'Arabic',
-    level: 'Native Language',
-  },
-  {
-    language: 'English',
-    level: 'Good',
-  },
-];
-
-const accounts = {
-  x: 'https://x.com/xlmnxp',
-  Github: 'https://github.com/xlmnxp/',
-  Bahr: 'https://bahr.910ths.sa/freelancers/xlmnxp',
-  LinkedIn: 'https://sa.linkedin.com/in/salem-yaslem-98b494193',
-};
 </script>
+
+<style>
+.router-link-active {
+  font-weight: 600;
+  position: relative;
+}
+
+.router-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+}
+</style>
