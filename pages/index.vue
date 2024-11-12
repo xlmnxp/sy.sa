@@ -157,7 +157,7 @@
       position: 'Software Engineer / DevOps Engineer',
       type: 'Full-time',
       startDate: 'August 2021',
-      endDate: 'Present',
+      endDate: 'November 2024',
       responsibilities: [
         {
           period: 'Year 3 (2023 - Present)',
