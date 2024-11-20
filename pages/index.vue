@@ -160,7 +160,7 @@
       endDate: 'November 2024',
       responsibilities: [
         {
-          period: 'Year 3 (2023 - Present)',
+          period: 'Year 3 (2023 - November 2024)',
           tasks: [
             'Migrated infrastructure to Google Cloud Platform using Terraform for Infrastructure as Code (IaC)',
             'Set up and managed databases, storage buckets, and various GCP services including Cloud Run, Load Balancers, Cloud DNS, Redis, and Cloud Build',
