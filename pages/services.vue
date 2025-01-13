@@ -39,7 +39,7 @@
                                 <li>The service is provided as-is without any warranties</li>
                             </ul>
                         </div>
-                        
+
                         <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
                             <h3 class="text-lg font-semibold text-primary dark:text-primary-dark mb-2">How to Connect:
                             </h3>
@@ -61,7 +61,7 @@
                     <p class="text-gray-700 dark:text-gray-300 mb-4">
                         Bridge46 is a service that provides IPv4/IPv6 connectivity bridging. This public node helps
                         users access IPv6
-                        resources from IPv4-only networks and vice versa.
+                        resources from IPv4-only networks.
                     </p>
 
                     <div class="space-y-4">
