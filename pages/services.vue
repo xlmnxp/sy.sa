@@ -120,9 +120,15 @@
 </template>
 
 <script setup lang="ts">
+import personalInfo from 'assets/json/personal-info.json';
+
 const yggEndpoints = {
     'TCP': 'tcp://pp1.ygg.sy.sa:8441',
     'TLS': 'tls://pp1.ygg.sy.sa:8442',
     'QUIC': 'quic://pp1.ygg.sy.sa:8443'
 }
+
+useHead({
+  title: `${personalInfo.name} - Services`,
+})
 </script>

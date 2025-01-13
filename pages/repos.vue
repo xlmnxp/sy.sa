@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import personalInfo from 'assets/json/personal-info.json';
 
 interface Repository {
     id: number
@@ -45,6 +46,10 @@ const { data: repos, pending, error } = await useFetch<Repository[]>('https://ap
 
 const searchQuery = ref('')
 const sortBy = ref('stars')
+
+useHead({
+  title: `${personalInfo.name} - Repositories`,
+})
 
 const filteredRepos = computed(() => {
     if (!repos.value) return []
