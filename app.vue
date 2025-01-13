@@ -14,6 +14,7 @@
           <nav class="flex items-center space-x-6">
             <NuxtLink to="/" class="text-primary dark:text-primary-dark hover:text-primary-dark dark:hover:text-primary transition-colors">Home</NuxtLink>
             <NuxtLink to="/repos" class="text-primary dark:text-primary-dark hover:text-primary-dark dark:hover:text-primary transition-colors">Repositories</NuxtLink>
+            <NuxtLink to="/services" class="text-primary dark:text-primary-dark hover:text-primary-dark dark:hover:text-primary transition-colors">Services</NuxtLink>
           </nav>
           <ThemeToggle />
         </div>
