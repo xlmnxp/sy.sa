@@ -101,6 +101,15 @@
                                 <li>IPv4 to IPv6 bridging</li>
                                 <li>Public access</li>
                                 <li>No registration required</li>
+                                <li>Supported protocols:
+                                    <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+                                        <li>HTTP</li>
+                                        <li>HTTPS</li>
+                                        <li>WebSocket (ws)</li>
+                                        <li>Secure WebSocket (wss)</li>
+                                        <li>Minecraft (TCP)</li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
