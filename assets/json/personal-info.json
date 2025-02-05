@@ -5,12 +5,6 @@
     "nationality": "Saudi",
     "addresses": [
         {
-            "street": "8176, Al-Fahd District",
-            "city": "Sharurah",
-            "region": "Najran",
-            "country": "Saudi Arabia"
-        },
-        {
             "city": "Riyadh",
             "region": "Riyadh",
             "country": "Saudi Arabia"
@@ -19,6 +13,13 @@
     "email": "s@sy.sa",
     "summary": "Experienced professional with a strong background in utilizing various tools and technologies related to cloud computing, web development, DevOps, system administration, version control, containerization, and continuous integration/continuous deployment (CI/CD).",
     "experiences": [
+        {
+            "company": "SDAIQ",
+            "position": "DevOps and Automation Specialist",
+            "type": "Part-time",
+            "startDate": "February 2025",
+            "endDate": "Present",
+        },
         {
             "company": "Jaras",
             "position": "DevOps Engineer",
