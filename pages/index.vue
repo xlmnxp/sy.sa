@@ -85,7 +85,7 @@
           <div
             class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-l-4 border-primary dark:border-primary-dark transition-all duration-300 hover:shadow-xl animate-fadeIn">
             <p class="mb-2">
-              <strong class="text-primary dark:text-primary-dark">Email:</strong>
+              <strong class="text-primary dark:text-primary-dark">Email: </strong>
               <span class="text-gray-700 dark:text-gray-300">{{ personalInfo.email }}</span>
             </p>
             <p class="mb-2">
