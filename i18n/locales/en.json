@@ -11,7 +11,9 @@
     "education": "Education",
     "contact": "Contact",
     "connect": "Connect",
-    "location": "Location"
+    "location": "Location",
+    "email": "Email",
+    "allRightsReserved": "All rights reserved"
   },
   "repos": {
     "title": "My GitHub Repositories",
