@@ -44,8 +44,7 @@
 
     <footer class="bg-primary text-white text-center p-4 mt-8">
       <p>
-        &copy; {{ new Date().getFullYear() }} {{ personalInfo.name }}. All
-        rights reserved.
+        &copy; {{ new Date().getFullYear() }} {{ personalInfo.name }}. {{ $t('home.allRightsReserved') }}
       </p>
     </footer>
   </div>
