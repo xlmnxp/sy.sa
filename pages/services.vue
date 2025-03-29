@@ -13,8 +13,7 @@
 
                     <div class="space-y-4">
                         <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
-                            <h3 class="text-lg font-semibold text-primary dark:text-primary-dark mb-2">Available
-                                {{ $t("services.yggdrasil.endpoints") }}:</h3>
+                            <h3 class="text-lg font-semibold text-primary dark:text-primary-dark mb-2">{{ $t("services.yggdrasil.endpoints") }}:</h3>
                             <div class="space-y-2">
                                 <div v-for="(url, protocol) in yggEndpoints" :key="protocol"
                                     class="flex flex-col sm:flex-row sm:items-center gap-2">
