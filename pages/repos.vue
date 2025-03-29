@@ -6,7 +6,7 @@
 
             <RepoSearch v-model="searchQuery" v-model:sort-by="sortBy" class="animate-fadeIn" />
 
-            <div v-if="pending" class="flex justify-center items-center h-64 animate-fadeIn">
+            <div v-if="status == 'pending'" class="flex justify-center items-center h-64 animate-fadeIn">
                 <LoadingIndicator />
             </div>
 
@@ -42,7 +42,7 @@ interface Repository {
     updated_at: string
 }
 
-const { data: repos, pending, error } = await useFetch<Repository[]>('https://api.github.com/users/xlmnxp/repos?per_page=100')
+const { data: repos, status, error } = await useLazyFetch<Repository[]>('https://api.github.com/users/xlmnxp/repos?per_page=100')
 
 const searchQuery = ref('')
 const sortBy = ref('stars')
