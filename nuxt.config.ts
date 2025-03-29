@@ -13,4 +13,18 @@ export default defineNuxtConfig({
     buildAssetsDir: 'assets',
   },
   ssr: false, // Disable server-side rendering for static site generation
+  modules: [
+    '@nuxtjs/i18n',
+  ],
+  i18n: {
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
+    locales: [
+      { code: 'en', iso: 'en-US', dir: 'ltr', file: 'en.json' },
+      { code: 'ar', iso: 'ar-SA', dir: 'rtl', file: 'ar.json' }
+    ],
+    lazy: true,
+    defaultLocale: 'en',
+  },
 })

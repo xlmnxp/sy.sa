@@ -1,8 +1,7 @@
 <template>
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900 p-8">
         <div class="container mx-auto">
-            <h1 class="text-3xl font-bold text-primary dark:text-primary-dark mb-8 animate-fadeIn">My GitHub
-                Repositories</h1>
+            <h1 class="text-3xl font-bold text-primary dark:text-primary-dark mb-8 animate-fadeIn">{{ $t("repos.title") }}</h1>
 
             <RepoSearch v-model="searchQuery" v-model:sort-by="sortBy" class="animate-fadeIn" />
 
@@ -12,11 +11,11 @@
 
             <div v-else-if="error"
                 class="bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-600 text-red-700 dark:text-red-300 px-4 py-3 rounded animate-fadeIn">
-                <p>Failed to load repositories. Please try again later.</p>
+                <p>{{ $t("repos.error") }}</p>
             </div>
 
             <div v-else-if="filteredRepos.length === 0" class="text-center py-12 animate-fadeIn">
-                <p class="text-gray-600 dark:text-gray-400">No repositories found matching your search.</p>
+                <p class="text-gray-600 dark:text-gray-400">{{ $t("repos.noResults") }}</p>
             </div>
 
             <TransitionGroup v-else name="repo-list" tag="div"
@@ -47,8 +46,10 @@ const { data: repos, status, error } = await useLazyFetch<Repository[]>('https:/
 const searchQuery = ref('')
 const sortBy = ref('stars')
 
+const { t } = useI18n()
+
 useHead({
-  title: `${personalInfo.name} - Repositories`,
+  title: `${personalInfo.name} - ${t("navigation.repositories")}`,
 })
 
 const filteredRepos = computed(() => {

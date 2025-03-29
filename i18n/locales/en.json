@@ -1,0 +1,46 @@
+{
+  "navigation": {
+    "home": "Home",
+    "repositories": "Repositories",
+    "services": "Services"
+  },
+  "home": {
+    "about": "About Me",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact",
+    "connect": "Connect",
+    "location": "Location"
+  },
+  "repos": {
+    "title": "My GitHub Repositories",
+    "search": "Search repositories...",
+    "sort": {
+      "stars": "Sort by Stars",
+      "name": "Sort by Name",
+      "updated": "Sort by Last Updated"
+    },
+    "noResults": "No repositories found matching your search.",
+    "loading": "Loading...",
+    "error": "Failed to load repositories. Please try again later.",
+    "updated": "Updated"
+  },
+  "services": {
+    "title": "Public Services",
+    "yggdrasil": {
+      "title": "Yggdrasil Network Public Peer",
+      "description": "Yggdrasil Network is a decentralized peer-to-peer network that creates an encrypted IPv6 mesh network. This public peer helps users connect to the Yggdrasil network and enhance its connectivity.",
+      "endpoints": "Available Endpoints"
+    },
+    "bridge46": {
+      "title": "Public Bridge46 Node",
+      "description": "Bridge46 is a service that provides IPv4/IPv6 connectivity bridging. This public node helps users access IPv6 resources from IPv4-only networks."
+    },
+    "common": {
+      "note": "Note",
+      "disclaimer": "The service is provided as-is without any warranties",
+      "howToUse": "How to Use"
+    }
+  }
+}

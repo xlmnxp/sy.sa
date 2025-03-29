@@ -8,6 +8,6 @@
                 class="w-12 h-12 border-4 border-primary/60 dark:border-primary-dark/60 border-t-transparent rounded-full animate-spin absolute top-2 left-2">
             </div>
         </div>
-        <p class="text-gray-600 dark:text-gray-400 animate-pulse">Loading...</p>
+        <p class="text-gray-600 dark:text-gray-400 animate-pulse">{{ $t("repos.loading") }}</p>
     </div>
 </template>
