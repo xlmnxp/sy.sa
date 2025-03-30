@@ -113,7 +113,8 @@
 </template>
 
 <script setup lang="ts">
-import personalInfo from 'assets/json/personal-info.json';
+import { usePersonalInfo } from '~/common/utils'
+const personalInfo = await usePersonalInfo()
 
 const yggEndpoints = {
     'TCP': 'tcp://pp1.ygg.sy.sa:8441',

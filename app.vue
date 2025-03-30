@@ -50,15 +50,16 @@
   </div>
 </template>
 
-<script setup>
-import personalInfo from 'assets/json/personal-info.json';
-
+<script setup lang="ts">
+import { usePersonalInfo } from './common/utils'
+const personalInfo = await usePersonalInfo()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 const router = useRouter()
 
-function switchLanguage(event) {
-  router.push(switchLocalePath(event.target.value))
+function switchLanguage(event: Event) {
+  const target = event.target as HTMLSelectElement
+  router.push(switchLocalePath(target.value as Parameters<typeof switchLocalePath>[0]))
 }
 
 </script>

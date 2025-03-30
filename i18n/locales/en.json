@@ -13,7 +13,9 @@
     "connect": "Connect",
     "location": "Location",
     "email": "Email",
-    "allRightsReserved": "All rights reserved"
+    "allRightsReserved": "All rights reserved",
+    "at": "at",
+    "in": "in"
   },
   "repos": {
     "title": "My GitHub Repositories",

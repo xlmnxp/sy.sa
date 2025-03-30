@@ -13,7 +13,9 @@
     "connect": "تواصل معي",
     "email": "البريد الإلكتروني",
     "location": "الموقع",
-    "allRightsReserved": "جميع الحقوق محفوظة"
+    "allRightsReserved": "جميع الحقوق محفوظة",
+    "at": "في",
+    "in": "في"
   },
   "repos": {
     "title": "مستودعاتي على GitHub",

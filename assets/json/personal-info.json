@@ -106,13 +106,18 @@
             "Jenkins"
         ],
         "programming": [
-            "C/C++",
+            "JavaScript/TypeScript",
             "Rust",
-            "JavaScript/TypeScript"
+            "C/C++",
+            "Python"
         ],
         "operating": [
             "Linux System Administrator",
-            "PostgreSQL"
+            "PostgreSQL",
+            "Elasticsearch",
+            "Redis",
+            "Nginx",
+            "Apache"
         ],
         "extra": [
             "HTML",
@@ -129,13 +134,22 @@
         ],
         "cloud": [
             "Oracle Cloud Infrastructure",
-            "Google Cloud Platform"
+            "Google Cloud Platform",
+            "Kubernetes",
+            "Terraform",
+            "Domain Name System (DNS)",
+            "Object Storage",
+            "Block Storage",
+            "Load Balancer",
+            "Containers"
         ],
         "other": [
             "GTK",
             "Ffmpeg",
             "Camunda",
-            "Directus"
+            "Directus",
+            "LXC",
+            "Incus"
         ]
     },
     "accounts": {

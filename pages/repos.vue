@@ -28,7 +28,8 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import personalInfo from 'assets/json/personal-info.json';
+import { usePersonalInfo } from '~/common/utils'
+const personalInfo = await usePersonalInfo()
 
 interface Repository {
     id: number

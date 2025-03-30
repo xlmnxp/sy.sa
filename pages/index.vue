@@ -15,7 +15,7 @@
             <div v-for="(job, index) in personalInfo.experiences" :key="index"
               class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-s-4 border-primary dark:border-primary-dark transition-all duration-300 hover:shadow-xl animate-fadeIn">
               <h3 class="text-xl font-semibold text-primary dark:text-primary-dark">
-                {{ job.position }} at {{ job.company }}
+                {{ job.position }} {{ $t("home.at") }} {{ job.company }}
               </h3>
               <p class="text-gray-600 dark:text-gray-400 mb-4">
                 {{ job.startDate }} - {{ job.endDate }}
@@ -70,7 +70,7 @@
             class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-s-4 border-primary dark:border-primary-dark transition-all duration-300 hover:shadow-xl animate-fadeIn">
             <template v-for="education of personalInfo.educations">
               <h3 class="text-xl font-semibold text-primary dark:text-primary-dark">
-                {{ education.degree }} in {{ education.field }}
+                {{ education.degree }} {{ $t("home.in") }} {{ education.field }}
               </h3>
               <p class="text-gray-600 dark:text-gray-400">
                 {{ education.institution }}, {{ education.startYear }} -
@@ -121,8 +121,9 @@
   </Suspense>
 </template>
 
-<script setup>
-import personalInfo from 'assets/json/personal-info.json';
+<script setup lang="ts">
+import { usePersonalInfo } from '~/common/utils'
+const personalInfo = await usePersonalInfo()
 
 useHead({
   title: `${personalInfo.name} - ${personalInfo.title}`,
