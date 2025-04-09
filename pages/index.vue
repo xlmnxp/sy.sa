@@ -12,15 +12,14 @@
         <section class="mb-12">
           <h2 class="text-3xl font-semibold mb-4 text-primary dark:text-primary-dark animate-fadeIn">{{ $t("home.experience") }}</h2>
           <div class="space-y-6">
-            <div v-for="(job, index) in personalInfo.experiences" :key="index"
-              class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-s-4 border-primary dark:border-primary-dark transition-all duration-300 hover:shadow-xl animate-fadeIn">
+            <HighlightedCard :highlightPosition="HighlightPosition.Start" v-for="(job, index) in personalInfo.experiences" :key="index">
               <h3 class="text-xl font-semibold text-primary dark:text-primary-dark">
                 {{ job.position }} {{ $t("home.at") }} {{ job.company }}
               </h3>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">
+              <p class="text-gray-600 dark:text-gray-400">
                 {{ job.startDate }} - {{ job.endDate }}
               </p>
-              <ul class="space-y-3">
+              <ul class="space-y-3 mt-4" v-if="job?.responsibilities?.length">
                 <li v-for="(resp, respIndex) in job.responsibilities" :key="respIndex" class="ms-4">
                   <template v-if="typeof resp === 'string'">
                     <span
@@ -41,15 +40,14 @@
                   </template>
                 </li>
               </ul>
-            </div>
+            </HighlightedCard>
           </div>
         </section>
 
         <section class="mb-12">
           <h2 class="text-3xl font-semibold mb-4 text-primary dark:text-primary-dark animate-fadeIn">{{ $t("home.skills") }}</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div v-for="(skillSet, category) in personalInfo.skills" :key="category"
-              class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-t-4 border-primary dark:border-primary-dark transition-all duration-300 hover:shadow-xl animate-fadeIn">
+            <HighlightedCard :highlightPosition="HighlightPosition.Top" v-for="(skillSet, category) in personalInfo.skills" :key="category">
               <h3 class="text-xl font-semibold mb-3 capitalize text-primary dark:text-primary-dark">
                 {{ category }}
               </h3>
@@ -60,14 +58,13 @@
                   <span class="text-gray-700 dark:text-gray-300">{{ skill }}</span>
                 </li>
               </ul>
-            </div>
+            </HighlightedCard>
           </div>
         </section>
 
         <section class="mb-12">
           <h2 class="text-3xl font-semibold mb-4 text-primary dark:text-primary-dark animate-fadeIn">{{ $t("home.education") }}</h2>
-          <div
-            class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-s-4 border-primary dark:border-primary-dark transition-all duration-300 hover:shadow-xl animate-fadeIn">
+          <HighlightedCard :highlightPosition="HighlightPosition.Start">
             <template v-for="education of personalInfo.educations">
               <h3 class="text-xl font-semibold text-primary dark:text-primary-dark">
                 {{ education.degree }} {{ $t("home.in") }} {{ education.field }}
@@ -77,13 +74,12 @@
                 {{ education.endYear }}
               </p>
             </template>
-          </div>
+          </HighlightedCard>
         </section>
 
         <section class="mb-12">
           <h2 class="text-3xl font-semibold mb-4 text-primary dark:text-primary-dark animate-fadeIn">{{ $t("home.contact") }}</h2>
-          <div
-            class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-s-4 border-primary dark:border-primary-dark transition-all duration-300 hover:shadow-xl animate-fadeIn">
+          <HighlightedCard :highlightPosition="HighlightPosition.Start">
             <p class="mb-2">
               <strong class="text-primary dark:text-primary-dark">{{ $t("home.email") }}: </strong>
               <span class="text-gray-700 dark:text-gray-300">{{ personalInfo.email }}</span>
@@ -98,7 +94,7 @@
               <span v-if="address.street"> ({{ address.street }}) </span>
             </div>
             </p>
-          </div>
+          </HighlightedCard>
         </section>
 
         <section class="mb-12">
@@ -122,7 +118,9 @@
 </template>
 
 <script setup lang="ts">
-import { usePersonalInfo } from '~/common/utils'
+import { HighlightPosition } from '~/common/enums';
+import { usePersonalInfo } from '~/common/utils';
+
 const personalInfo = await usePersonalInfo()
 
 useHead({
